@@ -1,0 +1,3 @@
+﻿  labo1TestsExtra.cpp
+gtestd.lib(gtest-all.obj) : warning LNK4099: PDB 'gtest.pdb' was not found with 'gtestd.lib(gtest-all.obj)' or at 'C:\Users\Richard\Desktop\gti320-labo2-corrM\tp2\x64\Debug\gtest.pdb'; linking object as if no debug info
+  labo01.vcxproj -> C:\Users\Richard\Desktop\gti320-labo2-corrM\tp2\x64\Debug\labo01.exe

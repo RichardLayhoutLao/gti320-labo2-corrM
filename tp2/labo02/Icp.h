@@ -42,7 +42,7 @@ namespace gti320
     /**
      * Retourne l'index du point de A qui est le plus proche du point p.
      *
-     * TODO
+     * TODO                                                                                         // TODO
      *
      * @param p un point
      * @param A un nuage de points
@@ -54,7 +54,7 @@ namespace gti320
      * Étant donné deux nuages de points A et B, calcule la meilleure
      * transformation rigide pour aligner les deux nuages.
      *
-     * TODO
+     * TODO                                                                                         // TODO
      *
      * @param A le nuage de points de référence
      * @param B le nuage de points à aligner avec celui de référence
@@ -69,7 +69,7 @@ namespace gti320
      * L'erreur est la somme des distances entre le i-ième point de A et le
      * i-ième point de B.
      *
-     * TODO
+     * TODO                                                                                         // TODO
      *
      * @param A nuage de points
      * @param B nuage de points
