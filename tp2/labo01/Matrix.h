@@ -3,7 +3,7 @@
 /**
  * @file Matrix.h
  *
- * @brief Implémentation de matrices simples.
+ * @brief Implï¿½mentation de matrices simples.
  *
  * Nom: Richard Layhout Lao
  * Code permanent : LAO19089501
@@ -22,7 +22,7 @@ namespace gti320
         RowStorage = 1
     };
 
-    // Déclaration avancée
+    // Dï¿½claration avancï¿½e
     template <typename _Scalar, int _RowsAtCompile, int _ColsAtCompile, int _StorageType> class SubMatrix;
 
 
@@ -33,9 +33,9 @@ namespace gti320
 
     /**
     /**
-     * Classe Matrix spécialisé pour le cas d'un stockage par colonnes.
+     * Classe Matrix spï¿½cialisï¿½ pour le cas d'un stockage par colonnes.
      *
-     * (le cas d'un stockage par ligne fait l'objet d'une spécialisation de
+     * (le cas d'un stockage par ligne fait l'objet d'une spï¿½cialisation de
      * patron, voir plus bas)
      */
     template <typename _Scalar = double, int _RowsAtCompile = Dynamic, int _ColsAtCompile = Dynamic, int _StorageType = ColumnStorage>
@@ -43,7 +43,7 @@ namespace gti320
     public:
 
         /**
-         * Constructeur par défaut
+         * Constructeur par dï¿½faut
          */
         Matrix() : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>() { }
 
@@ -53,7 +53,7 @@ namespace gti320
         Matrix(const Matrix& other) : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>(other) { }
 
         /**
-         * Constructeur avec spécification du nombre de ligne et de colonnes
+         * Constructeur avec spï¿½cification du nombre de ligne et de colonnes
          */
         explicit Matrix(int _rows, int _cols) : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>(_rows, _cols) { }
 
@@ -63,7 +63,7 @@ namespace gti320
         ~Matrix() { }
 
         /**
-         * Opérateur de copie à partir d'une sous-matrice.
+         * Opï¿½rateur de copie ï¿½ partir d'une sous-matrice.
          *
          * Exemple : Matrix B = A.block(i,j,m,n);
          */
@@ -73,6 +73,7 @@ namespace gti320
             Matrix<_OtherScalar, OtherRows, _OtherCols, ColumnStorage> Matrix(submatrix.rows(), submatrix.cols());
 
             int total = 0;
+            // NOUVEAU
             for (int i = 0; i < submatrix.rows(); i++) {
                 for (int j = 0; j < submatrix.cols(); j++) {
                     Matrix(i, j) = submatrix(i, j);
@@ -83,7 +84,7 @@ namespace gti320
         }
 
         /**
-         * Accesseur à une entrée de la matrice (lecture seule)
+         * Accesseur ï¿½ une entrï¿½e de la matrice (lecture seule)
          */
         _Scalar operator()(int i, int j) const
         {
@@ -92,7 +93,7 @@ namespace gti320
         }
 
         /**
-         * Accesseur à une entrée de la matrice (lecture ou écriture)
+         * Accesseur ï¿½ une entrï¿½e de la matrice (lecture ou ï¿½criture)
          */
         _Scalar& operator()(int i, int j)
         {
@@ -102,7 +103,7 @@ namespace gti320
         }
 
         /**                                                                                     
-         * Crée une sous-matrice pour un block de taille (rows, cols) à partir
+         * Crï¿½e une sous-matrice pour un block de taille (rows, cols) ï¿½ partir
          * de l'index (i,j).
          */
         SubMatrix<_Scalar, _RowsAtCompile, _ColsAtCompile, _StorageType> block(int i, int j, int rows, int cols) const
@@ -120,13 +121,14 @@ namespace gti320
         }
 
         /**
-         * Retourne la transposée de la matrice
+         * Retourne la transposï¿½e de la matrice
          */
         template<typename _OtherScalar, int _OtherRows, int _OtherCols, int _OtherStorage>
         Matrix<_OtherScalar, _OtherRows, _OtherCols, _OtherStorage> transpose() const
         {
             Matrix<_Scalar, _OtherRows, _OtherCols, _OtherStorage> matrice(Matrix::cols(), Matrix::rows());
             
+            // NOUVEAU
             for (int i = 0; i < matrice.rows(); i++)
             {
                 for (int j = 0; j < matrice.cols(); j++)
@@ -139,11 +141,11 @@ namespace gti320
         }
 
         /**
-         * Affecte l'identité à la matrice
+         * Affecte l'identitï¿½ ï¿½ la matrice
          */
         void setIdentity()
         {
-            //Affecter la valeur 0.0 partour, sauf sur la diagonale principale où c'est 1.0.
+            //Affecter la valeur 0.0 partour, sauf sur la diagonale principale oï¿½ c'est 1.0.
 
             MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>::m_storage.setZero();
 
@@ -162,14 +164,14 @@ namespace gti320
     ----------------------------------------------------------------------------------------------------------------------------------------*/
 
     /**
-     * Classe Matrix spécialisée pour un stockage par lignes
+     * Classe Matrix spï¿½cialisï¿½e pour un stockage par lignes
      */
     template <typename _Scalar, int _RowsAtCompile, int _ColsAtCompile>
     class Matrix< _Scalar, _RowsAtCompile, _ColsAtCompile, RowStorage> : public MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile> {
 
     public:
         /**
-         * Constructeur par défaut
+         * Constructeur par dï¿½faut
          */
         Matrix() : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>() { }
 
@@ -179,7 +181,7 @@ namespace gti320
         Matrix(const Matrix& other) : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>(other) { }
 
         /**
-         * Constructeur avec spécification du nombre de ligne et de colonnes
+         * Constructeur avec spï¿½cification du nombre de ligne et de colonnes
          */
         explicit Matrix(int rows, int cols) : MatrixBase<_Scalar, _RowsAtCompile, _ColsAtCompile>(rows, cols) { }
 
@@ -189,7 +191,7 @@ namespace gti320
         ~Matrix() { }
 
         /**
-         * Opérateur de copie à partir d'une sous-matrice.
+         * Opï¿½rateur de copie ï¿½ partir d'une sous-matrice.
          *
          * Exemple : Matrix B = A.block(i,j,m,n);
          */
@@ -210,26 +212,28 @@ namespace gti320
         }
 
         /**
-         * Accesseur à une entrée de la matrice (lecture seule)
+         * Accesseur ï¿½ une entrï¿½e de la matrice (lecture seule)
          */
         _Scalar operator()(int i, int j) const
         {
-            int index = (Matrix::cols() * i) + j; //ligne   
+            // NOUVEAU
+            int index = (Matrix::cols() * i) + j;  
             return Matrix::m_storage.data()[index];
         }
 
         /**
-         * Accesseur à une entrée de la matrice (lecture ou écriture)
+         * Accesseur ï¿½ une entrï¿½e de la matrice (lecture ou ï¿½criture)
          */
         _Scalar& operator()(int i, int j)
         {
-            int index = (Matrix::cols() * i) + j; //ligne                                                                  
+            // NOUVEAU
+            int index = (Matrix::cols() * i) + j;                                                                  
             _Scalar& referenceTableauEntry = Matrix::m_storage.data()[index];
             return referenceTableauEntry;
         }
 
         /**                                                                    
-         * Crée une sous-matrice pour un block de taille (rows, cols) à partir
+         * Crï¿½e une sous-matrice pour un block de taille (rows, cols) ï¿½ partir
          * de l'index (i,j).
          */
         SubMatrix<_Scalar, _RowsAtCompile, _ColsAtCompile, RowStorage> block(int i, int j, int rows, int cols) const {
@@ -246,12 +250,13 @@ namespace gti320
         }
 
         /**
-         * Retourne la transposée de la matrice
+         * Retourne la transposï¿½e de la matrice
          */
         Matrix<_Scalar, _ColsAtCompile, _RowsAtCompile, ColumnStorage> transpose() const
         {
             Matrix<_Scalar, _ColsAtCompile, _RowsAtCompile, ColumnStorage> matrice(Matrix::cols(), Matrix::rows());
-
+            
+            // NOUVEAU
             for (int j = 0; j < matrice.cols(); j++)
             {
                 for (int i = 0; i < matrice.rows(); i++)
@@ -270,7 +275,7 @@ namespace gti320
 
 
         /**
-         * Affecte l'identité à la matrice
+         * Affecte l'identitï¿½ ï¿½ la matrice
          */
         void setIdentity()
         {
@@ -291,24 +296,24 @@ namespace gti320
     ----------------------------------------------------------------------------------------------------------------------------------------*/
 
     /**
-     * Classe pour accéder à une sous-matrice.
+     * Classe pour accï¿½der ï¿½ une sous-matrice.
      *
-     * Un sous-matrice ne copie pas les données. Au lieu de cela, elle conserve une
-     * référence à la matrice originale.
+     * Un sous-matrice ne copie pas les donnï¿½es. Au lieu de cela, elle conserve une
+     * rï¿½fï¿½rence ï¿½ la matrice originale.
      */
     template <typename _Scalar, int _RowsAtCompile, int _ColsAtCompile, int _StorageType>
     class SubMatrix
     {
     private:
-        // Référence à la matrice originale
+        // Rï¿½fï¿½rence ï¿½ la matrice originale
         Matrix<_Scalar, _RowsAtCompile, _ColsAtCompile, _StorageType>& m_matrix;
 
-        // Constructeur par défaut (privé)
+        // Constructeur par dï¿½faut (privï¿½)
         SubMatrix() {}
 
-        // (i,j) est le coin supérieur gauche de la sous-matrice
-        int m_i;        // Décalage en ligne 
-        int m_j;        // Décalage en colonne
+        // (i,j) est le coin supï¿½rieur gauche de la sous-matrice
+        int m_i;        // Dï¿½calage en ligne 
+        int m_j;        // Dï¿½calage en colonne
 
         // la sous-matrice est de dimension : m_rows x m_cols
         int m_rows;     // Height of the sub matrix (rows)
@@ -317,7 +322,7 @@ namespace gti320
     public:
 
         /**
-         * Constructeur à partir d'une référence en lecture seule à une matrice.
+         * Constructeur ï¿½ partir d'une rï¿½fï¿½rence en lecture seule ï¿½ une matrice.
          */
         SubMatrix(const Matrix<_Scalar, _RowsAtCompile, _ColsAtCompile, _StorageType>& _matrix, int _i, int _j, int _rows, int _cols) :
             m_matrix(const_cast<Matrix<_Scalar, _RowsAtCompile, _ColsAtCompile, _StorageType>&>(_matrix)),
@@ -326,7 +331,7 @@ namespace gti320
         }
 
         /**
-         * Constructeur à partir d'une référence en lecture et écriture à une matrice.
+         * Constructeur ï¿½ partir d'une rï¿½fï¿½rence en lecture et ï¿½criture ï¿½ une matrice.
          */
         explicit SubMatrix(Matrix<_Scalar, _RowsAtCompile, _ColsAtCompile, _StorageType>& _matrix    , int _i, int _j, int _rows, int _cols) :
             m_matrix(_matrix),
@@ -350,20 +355,20 @@ namespace gti320
         ~SubMatrix() { }
 
         /**
-         * Opérateur de copie (à partir d'une matrice)
+         * Opï¿½rateur de copie (ï¿½ partir d'une matrice)
          *
-         * Copies toutes les entrées de la matrice dans la sous-matrice.
+         * Copies toutes les entrï¿½es de la matrice dans la sous-matrice.
          *
-         * Note : la taille de la matrice doit correspondre à la taille de la
+         * Note : la taille de la matrice doit correspondre ï¿½ la taille de la
          * sous-matrice.
          */
         template<typename _OtherScalar, int _OtherRows, int _OtherCols, int _OtherStorage>
         SubMatrix& operator= (const Matrix<_OtherScalar, _OtherRows, _OtherCols, _OtherStorage>& matrix)
-        {
-            // TODO Copie les valeurs de la matrice dans la sous-matrice.                                   
-            //      Note les dimensions de la matrice doivent correspondre à celle de
+        {                                
+            //      Note les dimensions de la matrice doivent correspondre ï¿½ celle de
             //      la sous-matrice.
 
+            // NOUVEAU
             for (int i = 0; i < matrix.rows(); i++){
                 for (int j = 0; j < matrix.cols(); j++) {
                     (*this)(i,j) = matrix(i,j);
@@ -374,7 +379,7 @@ namespace gti320
         }
 
         /**
-         * Accesseur aux entrées de la sous-matrice (lecture seule)
+         * Accesseur aux entrï¿½es de la sous-matrice (lecture seule)
          *
          * Note : il faut s'assurer que les indices respectent la taille de la
          * sous-matrice
@@ -382,25 +387,24 @@ namespace gti320
         _Scalar operator()(int i, int j) const
         {
 
-            //_Scalar referenceTableauEntry = m_matrix(i + m_i, j + m_j);
+            // NOUVEAU
             return m_matrix(i + m_i, j + m_j);
         }
 
         /**
-         * Accesseur aux entrées de la sous-matrice (lecture et écriture)
+         * Accesseur aux entrï¿½es de la sous-matrice (lecture et ï¿½criture)
          *
          * Note : il faut s'assurer que les indices respectent la taille de la
          * sous-matrice
          */
         _Scalar& operator()(int i, int j)
         {
-
-            //_Scalar referenceTableauEntry = m_matrix(i + m_i, j + m_j);
+            // NOUVEAU
             return m_matrix(i + m_i, j + m_j);
         }
 
         /**
-         * Retourne la transposée de la sous-matrice sous la forme d'une matrice.
+         * Retourne la transposï¿½e de la sous-matrice sous la forme d'une matrice.
          */
         template<typename _OtherScalar, int _OtherRows, int _OtherCols, int _OtherStorage>
         Matrix<_OtherScalar, _OtherRows, _OtherCols, _OtherStorage> transpose() const

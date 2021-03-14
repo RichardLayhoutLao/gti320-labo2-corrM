@@ -171,7 +171,7 @@ namespace gti320
         {
 
           if (this != &other) {
-              
+              // NOUVEAU
               if (m_size != other.size())
               {
               resize(other.size());
@@ -204,7 +204,7 @@ namespace gti320
       void resize(int _size)
         {
 
-
+          // NOUVEAU
           if (m_size != _size) {
             m_size = _size;
             delete[] m_data;

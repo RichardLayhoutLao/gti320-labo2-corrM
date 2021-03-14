@@ -133,6 +133,7 @@ namespace gti320 {
     template <typename _Scalar>
     Matrix<_Scalar, Dynamic, Dynamic> operator+(const Matrix<_Scalar, Dynamic, Dynamic, ColumnStorage>& A, const Matrix<_Scalar, Dynamic, Dynamic, ColumnStorage>& B)
     {
+        // NOUVEAU
         assert(B.rows() == A.rows() && B.cols() == A.cols());
 
         Matrix<_Scalar, Dynamic, Dynamic> matrice(B.rows(), B.cols());
@@ -219,6 +220,8 @@ namespace gti320 {
         double total;
         Vector<_Scalar, _Rows> vecteur(A.rows());
         vecteur.setZero();
+
+        // NOUVEAU
         for (int i = 0; i < A.rows(); i++)
         {
             total = 0;
@@ -243,6 +246,8 @@ namespace gti320 {
         double total;
         Vector<_Scalar, _Rows> vecteur(A.rows());
         vecteur.setZero();
+
+        // NOUVEAU
         for (int j = 0; j < A.cols(); j++)
         {
             total = 0;

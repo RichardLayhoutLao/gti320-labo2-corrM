@@ -104,6 +104,8 @@ namespace gti320 {
           {
             double total = 0;
             for (int i = 0; i < Vector::size(); i++){
+
+                // NOUVEAU
                 total += Vector::m_storage.data()[i]* Vector::m_storage.data()[i];
             }
          
