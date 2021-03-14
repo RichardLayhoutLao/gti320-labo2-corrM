@@ -363,7 +363,7 @@ void IcpApplication::stepIcp()
   gti320::Points3d A(3, npoints);
   gti320::Points3d B(3, npoints);
 
-  // TODO 
+  // TODO                                                                                                           TODO
   //
   // Étape 1 : construire A et B
   //
@@ -382,16 +382,16 @@ void IcpApplication::stepIcp()
   // 
   for (int i = 0; i < npoints; ++i)
     {
-      // TODO Étape 1.1 calculer p = m_srcTM * m_initTM * m_sourcePoints(:,i)
+      // TODO Étape 1.1 calculer p = m_srcTM * m_initTM * m_sourcePoints(:,i)                                       TODO
       //
-      // TODO Étape 1.2 trouver le point de m_refPoints qui est le plus près de p
+      // TODO Étape 1.2 trouver le point de m_refPoints qui est le plus près de p                                   TODO
       //
 
-      // TODO Étape 1.3 affecter B[:,i] = p and A[:,i] = m_refPoints[:,k]
+      // TODO Étape 1.3 affecter B[:,i] = p and A[:,i] = m_refPoints[:,k]                                           TODO
       //
     }
 
-  // TODO Étape 2 : calculer la meilleure transformations rigide de B vers A et
+  // TODO Étape 2 : calculer la meilleure transformations rigide de B vers A et                                     TODO
   // l'ajouter à m_srcTM
   //
 
