@@ -9,11 +9,30 @@ using namespace gti320;
 
 /**
  * Calcul du déterminant 3x3
- * TODO                                                                                         // TODO
+ * TODO                                                                                         // TODO DONE
  */
 double gti320::determinant(const Matrix3d& M)
 {
-    return 0.0;
+    double a11 = M(0, 0);
+    double a12 = M(0, 1);
+    double a13 = M(0, 2);
+
+    double a21 = M(1, 0);
+    double a22 = M(1, 1);
+    double a23 = M(1, 2);
+
+    double a31 = M(2, 0);
+    double a32 = M(2, 1);
+    double a33 = M(2, 2);
+
+    double cofacteur11= (a22 * a33) - (a23 * a32);
+    double cofacteur12= (a21 * a33) - (a23 * a31);
+    double cofacteur13= (a21 * a32) - (a22 * a31);
+
+    double determinant = (a11*(cofacteur11))-(a12*(cofacteur12))+(a13 * (cofacteur13));
+    
+
+    return determinant;
 }
 
 /**
@@ -41,7 +60,7 @@ double Icp::error(const Points3d& A, const Points3d& B)
 
 /**
  * Index du point de A qui minimise la distance à p
- * TODO                                                                                         // TODO
+ * TODO                                                                                         // TODO DONE
  */
 int Icp::nearestNeighbor(const Vector3d& p, const Points3d& A)
 {
@@ -78,5 +97,6 @@ Matrix4d Icp::bestFitTransform(const Points3d& A, const Points3d& B)
     Matrix4d T;
     T.setIdentity();
 
+    
     return T;
 }
