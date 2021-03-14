@@ -3,9 +3,9 @@
  *
  * @brief GTI320 Labo 2 - Lance une fenêtre NanoGUI
  *
- * Nom:
- * Code permanent :
- * Email :
+ * Nom: Richard Layhout Lao
+ * Code permanent : LAO19089501
+ * Email : richard-layhout.lao.1@ens.etsmtl.ca
  *
  */
 

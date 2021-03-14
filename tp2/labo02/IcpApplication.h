@@ -7,9 +7,9 @@
  *         - Implémentation de l'algorithme ICP
  *         - Gestion de l'interface graphique
  *
- * Nom:
- * Code permanent :
- * Email :
+ * Nom: Richard Layhout Lao
+ * Code permanent : LAO19089501
+ * Email : richard-layhout.lao.1@ens.etsmtl.ca
  *
  */
 
